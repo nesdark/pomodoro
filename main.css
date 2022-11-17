@@ -1,0 +1,218 @@
+/* SETTING */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --font-color: hsl(240, 6%, 21%);
+  --bg-button-clicked: #02799d;
+}
+
+body * {
+  font-family: "Roboto";
+  font-weight: 500;
+}
+
+body {
+  overflow: hidden;
+  transition: 0.6s;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  height: 9.9rem;
+  flex-direction: row-reverse;
+  padding-top: 6rem;
+  padding-inline: 7rem;
+}
+
+header button {
+  background: none;
+  border: none;
+}
+
+/* WHEN IS DARK */
+
+body.dark header button.change-theme-light,
+header button.change-theme-dark {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+}
+
+header button.change-theme-light,
+body.dark header button.change-theme-dark {
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-block: 3rem;
+
+  gap: 8rem;
+}
+
+/* TIMER */
+#timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+#timer h2 {
+  display: flex;
+
+  font-size: 12rem;
+
+  color: var(--font-color);
+}
+
+#timer h2 input {
+  font-size: 12rem;
+  width: 15rem;
+  border: none;
+  outline: none;
+
+  color: var(--font-color);
+
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+#timer input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#timer ul {
+  display: flex;
+  gap: 3rem;
+}
+
+#timer.timer-active ul .start-pomo,
+#timer ul .pause-pomo {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+}
+
+#timer ul .start-pomo,
+#timer.timer-active ul .pause-pomo {
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+}
+
+/* SOUNDS */
+
+#sounds audio {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#sounds ul {
+  display: flex;
+  max-width: 33rem;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 2rem;
+}
+
+#sounds ul li {
+  cursor: pointer;
+}
+
+#sounds ul li.selected svg path:first-child {
+  fill: var(--bg-button-clicked);
+}
+
+#sounds ul li.selected svg path:last-child {
+  fill: white;
+}
+
+/* DARK MODE */
+body.dark {
+  background-color: black;
+  --font-color: white;
+  --bg-button-clicked: white;
+
+  transition: 0.6s;
+}
+
+#timer h2 input {
+  background-color: transparent;
+  font-size: 12rem;
+  width: 15rem;
+  border: none;
+  outline: none;
+}
+
+body.dark #timer path {
+  fill: white;
+}
+
+body.dark #sounds svg path:first-child {
+  fill: #29292e;
+}
+
+body.dark #sounds svg path:last-child {
+  fill: white;
+}
+
+body.dark #sounds ul li.selected svg path:last-child {
+  fill: #29292e;
+}
+
+/* MEDIA */
+@media (max-width: 700px) {
+  body {
+    overflow: visible;
+  }
+
+  main {
+    flex-direction: column;
+  }
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  margin-right: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  border: none;
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(192, 192, 192);
+  border-radius: 3px;
+  cursor: move;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: none;
+}
